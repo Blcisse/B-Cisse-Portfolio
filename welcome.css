@@ -1,0 +1,104 @@
+/* welcome.css */
+
+#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    radial-gradient(circle at bottom left, #000322 30%, transparent 50%) no-repeat,
+    conic-gradient(from 90deg at 1px 1px, #000322 90deg, #8882 0) center -1px / 50px 50px,
+    linear-gradient(180deg, #000322 80%, #000322 100%);
+  background-blend-mode: normal, lighten, normal;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeOut 1s ease-in-out 3s forwards;
+}
+
+.welcome-content {
+  position: relative;
+  animation: floatUp 3s ease forwards;
+}
+
+.welcome-content h1 {
+  font-size: 150px;
+  font-weight: 600;
+  background: linear-gradient(90deg,#3C9EEB 15%,#15C7CB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  z-index: 1;
+}
+
+
+
+.dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(90deg,#3C9EEB 15%,#15C7CB 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbit 3s linear infinite;
+}
+
+/* Generate more dots with varied delays and distances */
+.dot-1 { animation-delay: 0s; transform-origin: 200px 0; }
+.dot-2 { animation-delay: 0.2s; transform-origin: 220px 0; }
+.dot-3 { animation-delay: 0.4s; transform-origin: 240px 0; }
+.dot-4 { animation-delay: 0.6s; transform-origin: 260px 0; }
+.dot-5 { animation-delay: 0.8s; transform-origin: 280px 0; }
+.dot-6 { animation-delay: 1s; transform-origin: 300px 0; }
+.dot-7 { animation-delay: 1.2s; transform-origin: 320px 0; }
+.dot-8 { animation-delay: 1.4s; transform-origin: 340px 0; }
+.dot-9 { animation-delay: 1.6s; transform-origin: 360px 0; }
+.dot-10 { animation-delay: 1.8s; transform-origin: 380px 0; }
+.dot-11 { animation-delay: 2s; transform-origin: 400px 0; }
+.dot-12 { animation-delay: 2.2s; transform-origin: 420px 0; }
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+    #welcome-screen {
+        background-size: cover;
+        background:
+          radial-gradient(circle at bottom left, #000322 30%, transparent 50%) no-repeat,
+          conic-gradient(from 90deg at 1px 1px, #000322 90deg, #8882 0) center -1px / 50px 50px,
+          linear-gradient(180deg, #000322 80%, #000322 100%);
+        background-blend-mode: normal, lighten, normal;
+    }
+    .welcome-content h1 {
+        font-size: 60px; /* Reduced from desktop size */
+    }
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+    @keyframes orbit {
+        0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+        100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+    }
+}
